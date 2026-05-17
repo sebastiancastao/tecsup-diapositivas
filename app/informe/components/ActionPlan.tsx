@@ -1,117 +1,87 @@
-"use client";
-import { useState } from "react";
 import { priorities } from "../data";
+import SlideShell from "./SlideShell";
 
 export default function ActionPlan() {
-  const [expanded, setExpanded] = useState<number | null>(1);
+  const immediatePriority = priorities[0];
 
   return (
-    <section className="py-12 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center gap-3 mb-2">
-          <span className="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center text-sm font-bold">3</span>
-          <h2 className="text-2xl font-bold text-gray-900">Plan de Acción — Mayo</h2>
+    <SlideShell
+      id="plan"
+      index="03"
+      eyebrow="Plan de Acción"
+      title="Cinco movimientos para pasar de presencia a captación"
+      description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendación es activar primero la capa de costos y financiamiento, porque hoy concentra la mayor fricción de decisión."
+      accent={
+        <div className="rounded-[26px] border border-brand-100 bg-brand-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-700">Prioridad inmediata</p>
+          <p className="mt-3 text-lg font-black tracking-tight text-slate-900">{immediatePriority.title}</p>
+          <p className="mt-3 text-sm leading-7 text-slate-600">
+            Ataca de frente la objeción de precio, becas, pensiones y retorno de inversión.
+          </p>
         </div>
-        <p className="text-gray-500 text-sm ml-11 mb-8">
-          5 prioridades estratégicas para optimizar la presencia de Tecsup en ecosistemas de IA.
-        </p>
+      }
+    >
+      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {priorities.map((priority) => (
+          <article
+            key={priority.id}
+            className="group rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div
+              className={`mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${priority.color} text-sm font-black text-white shadow-lg`}
+            >
+              P{priority.id}
+            </div>
 
-        <div className="space-y-4">
-          {priorities.map((p) => {
-            const isOpen = expanded === p.id;
-            return (
-              <div
-                key={p.id}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen ? "border-brand-200 shadow-md shadow-brand-50" : "border-gray-100 hover:border-gray-200"
-                }`}
-              >
-                <button
-                  onClick={() => setExpanded(isOpen ? null : p.id)}
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
-                >
-                  <div className="flex items-center gap-4 min-w-0">
-                    <div
-                      className={`w-10 h-10 rounded-xl bg-gradient-to-br ${p.color} text-white flex items-center justify-center text-sm font-extrabold flex-shrink-0`}
-                    >
-                      P{p.id}
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-bold text-gray-900 text-base">{p.title}</span>
-                        <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${p.badgeColor}`}>
-                          {p.badge}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  <svg
-                    className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${priority.badgeColor}`}>
+                {priority.badge}
+              </span>
+              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                {priority.actions.length} acciones
+              </span>
+            </div>
 
-                {isOpen && (
-                  <div className="px-6 pb-6 border-t border-gray-100">
-                    <div className="pt-5 mb-6">
-                      <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-2">Objetivo</p>
-                      <p className="text-gray-700 leading-relaxed">{p.objective}</p>
-                    </div>
+            <h3 className="mt-4 text-xl font-black tracking-tight text-slate-900">{priority.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-600">{priority.objective}</p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">
-                          Lo que se busca hacer
-                        </p>
-                        <ul className="space-y-2">
-                          {p.actions.map((action) => (
-                            <li key={action} className="flex items-start gap-2 text-sm text-gray-700">
-                              <svg
-                                className={`w-4 h-4 mt-0.5 flex-shrink-0 bg-gradient-to-br ${p.color} text-white rounded-full p-0.5`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                              </svg>
-                              {action}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      <div>
-                        <p className="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-3">
-                          Métricas GEO
-                        </p>
-                        <ul className="space-y-2">
-                          {p.metrics.map((metric) => (
-                            <li key={metric} className="flex items-start gap-2 text-sm text-gray-600">
-                              <svg
-                                className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-400"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                              </svg>
-                              {metric}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                )}
+            <div className="mt-6 grid gap-4">
+              <div className="rounded-[22px] bg-slate-50 p-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
+                  Movimientos clave
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {priority.actions.slice(0, 3).map((action) => (
+                    <li key={action} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                      <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-brand-500" />
+                      {action}
+                    </li>
+                  ))}
+                </ul>
+                {priority.actions.length > 3 ? (
+                  <p className="mt-3 text-xs font-semibold text-brand-700">
+                    + {priority.actions.length - 3} líneas de acción adicionales
+                  </p>
+                ) : null}
               </div>
-            );
-          })}
-        </div>
+
+              <div className="rounded-[22px] border border-slate-100 p-4">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
+                  Métricas GEO
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {priority.metrics.slice(0, 2).map((metric) => (
+                    <li key={metric} className="flex items-start gap-2 text-sm leading-6 text-slate-600">
+                      <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-slate-300" />
+                      {metric}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+    </SlideShell>
   );
 }

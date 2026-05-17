@@ -1,20 +1,19 @@
-"use client";
-import { useState } from "react";
 import { topicMentions, keyQuestions, sentimentData } from "../data";
+import SlideShell from "./SlideShell";
 
-const MAX_MENTIONS = 11417;
+const MAX_MENTIONS = Math.max(...topicMentions.map((item) => item.mentions));
 
 function MentionBar({ value, max, color }: { value: number; max: number; color: string }) {
   const pct = Math.round((value / max) * 100);
   return (
     <div className="flex items-center gap-3">
-      <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
+      <div className="flex-1 h-2.5 overflow-hidden rounded-full bg-slate-100">
         <div
           className={`h-full rounded-full ${color} transition-all duration-700`}
           style={{ width: `${pct}%` }}
         />
       </div>
-      <span className="text-sm font-semibold text-gray-700 w-16 text-right">
+      <span className="w-16 text-right text-sm font-semibold text-slate-700">
         {value.toLocaleString("es-PE")}
       </span>
     </div>
@@ -43,7 +42,6 @@ function SentimentBar({ positive, neutral, negative }: { positive: number; neutr
   );
 }
 
-const tabs = ["Temáticas", "Preguntas clave", "Sentimiento"];
 const barColors = [
   "bg-brand-400",
   "bg-brand-500",
@@ -52,124 +50,131 @@ const barColors = [
 ];
 
 export default function DiagnosisSection() {
-  const [activeTab, setActiveTab] = useState(0);
-
   return (
-    <section className="py-12 px-6 bg-gray-50 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center gap-3 mb-8">
-          <span className="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center text-sm font-bold">2</span>
-          <h2 className="text-2xl font-bold text-gray-900">Diagnóstico Detallado</h2>
+    <SlideShell
+      id="diagnostico"
+      index="02"
+      eyebrow="Diagnóstico"
+      title="La conversación gira en oferta, precio y validación institucional"
+      description="En formato de presentación, el patrón es más legible: las personas preguntan primero por la oferta, luego por el costo y finalmente por señales de reputación comparativa."
+      accent={
+        <div className="rounded-[26px] border border-slate-200 bg-slate-50 p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">Señales clave</p>
+          <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+            <p>
+              <span className="font-semibold text-slate-900">Mayor volumen:</span> Oferta académica.
+            </p>
+            <p>
+              <span className="font-semibold text-slate-900">Mayor riesgo:</span> Costos y financiamiento.
+            </p>
+            <p>
+              <span className="font-semibold text-slate-900">Pregunta crítica:</span> “¿Qué tal es el Instituto Tecsup?”.
+            </p>
+          </div>
         </div>
-
-        <div className="flex gap-2 mb-6 flex-wrap">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(i)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeTab === i
-                  ? "bg-brand-600 text-white shadow-md shadow-brand-100"
-                  : "bg-white text-gray-600 border border-gray-200 hover:border-brand-300 hover:text-brand-600"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-
-        {activeTab === 0 && (
-          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <div className="grid grid-cols-12 text-xs font-semibold text-gray-400 uppercase tracking-widest px-6 py-3 border-b border-gray-100 bg-gray-50">
-              <div className="col-span-3 md:col-span-2">Temática</div>
-              <div className="col-span-5 md:col-span-6">Menciones</div>
-              <div className="col-span-2 hidden md:block">Volumen</div>
-              <div className="col-span-4 md:col-span-2 text-right">Lectura estratégica</div>
+      }
+    >
+      <div className="grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
+        <div className="rounded-[30px] border border-slate-100 bg-white p-6 shadow-sm sm:p-7">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-700">Temáticas</p>
+              <h3 className="mt-2 text-2xl font-black tracking-tight text-slate-900">
+                Oferta académica y costos dominan el volumen de conversación
+              </h3>
             </div>
+            <span className="rounded-full bg-brand-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-brand-700">
+              4 focos
+            </span>
+          </div>
+
+          <div className="mt-8 space-y-6">
             {topicMentions.map((item, i) => (
               <div
                 key={item.topic}
-                className="grid grid-cols-12 items-center px-6 py-5 border-b border-gray-50 last:border-0 hover:bg-brand-50/40 transition-colors gap-y-2"
+                className="rounded-[24px] border border-slate-100 bg-slate-50/70 px-5 py-5 transition-colors hover:bg-brand-50/40"
               >
-                <div className="col-span-3 md:col-span-2">
-                  <span className="font-semibold text-gray-800 text-sm leading-snug">{item.topic}</span>
-                </div>
-                <div className="col-span-8 md:col-span-6 pr-4">
-                  <MentionBar value={item.mentions} max={MAX_MENTIONS} color={barColors[i]} />
-                </div>
-                <div className="col-span-0 md:col-span-2 hidden md:block" />
-                <div className="col-span-12 md:col-span-2 text-xs text-gray-500 leading-snug">
-                  {item.reading}
+                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                  <div className="md:max-w-[15rem]">
+                    <p className="text-base font-bold text-slate-900">{item.topic}</p>
+                    <p className="mt-2 text-sm leading-7 text-slate-500">{item.reading}</p>
+                  </div>
+                  <div className="flex-1 md:pl-8">
+                    <MentionBar value={item.mentions} max={MAX_MENTIONS} color={barColors[i]} />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-        )}
+        </div>
 
-        {activeTab === 1 && (
-          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <div className="grid grid-cols-12 text-xs font-semibold text-gray-400 uppercase tracking-widest px-6 py-3 border-b border-gray-100 bg-gray-50">
-              <div className="col-span-5">Pregunta del usuario</div>
-              <div className="col-span-3">Menciones</div>
-              <div className="col-span-4">Intención del usuario</div>
-            </div>
-            {keyQuestions.map((item, i) => (
-              <div
-                key={item.question}
-                className="grid grid-cols-12 items-center px-6 py-5 border-b border-gray-50 last:border-0 hover:bg-brand-50/40 transition-colors gap-y-2"
-              >
-                <div className="col-span-5">
-                  <span className="text-sm font-medium text-gray-800 italic">&quot;{item.question}&quot;</span>
-                </div>
-                <div className="col-span-3">
-                  <div className="flex items-center gap-2">
-                    <MentionBar value={item.mentions} max={10292} color={barColors[i]} />
-                  </div>
-                </div>
-                <div className="col-span-4 text-xs text-gray-500 leading-snug pl-2">{item.intent}</div>
-              </div>
-            ))}
-          </div>
-        )}
+        <div className="grid gap-6">
+          <div className="rounded-[30px] border border-slate-100 bg-white p-6 shadow-sm sm:p-7">
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-700">Preguntas Clave</p>
+            <h3 className="mt-2 text-2xl font-black tracking-tight text-slate-900">
+              Las dudas de reputación y precio disparan la exploración
+            </h3>
 
-        {activeTab === 2 && (
-          <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
-            <div className="px-6 py-3 border-b border-gray-100 bg-gray-50 flex items-center gap-6 text-xs font-semibold text-gray-400 uppercase tracking-widest">
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-400 inline-block" />Positivo</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-gray-300 inline-block" />Neutral</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-red-400 inline-block" />Negativo</span>
-            </div>
-            {sentimentData.map((item) => (
-              <div
-                key={item.concept}
-                className="px-6 py-5 border-b border-gray-50 last:border-0 hover:bg-gray-50/60 transition-colors"
-              >
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold text-gray-800 text-sm">{item.concept}</span>
-                    {item.alert && (
-                      <span className="text-xs bg-red-100 text-red-600 font-semibold px-2 py-0.5 rounded-full">
-                        ⚠ Alerta
-                      </span>
-                    )}
+            <div className="mt-6 space-y-4">
+              {keyQuestions.map((item) => (
+                <div key={item.question} className="rounded-[24px] border border-slate-100 bg-slate-50 p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="max-w-[18rem] text-base font-semibold italic leading-7 text-slate-900">
+                      &quot;{item.question}&quot;
+                    </p>
+                    <span className="rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-700">
+                      {item.mentions.toLocaleString("es-PE")}
+                    </span>
                   </div>
-                  <div className="flex items-center gap-4 text-xs text-gray-500 flex-shrink-0">
-                    <span className="text-green-600 font-semibold">{item.positive}%</span>
-                    <span className="text-gray-400">{item.neutral}%</span>
-                    <span className="text-red-500 font-semibold">{item.negative}%</span>
-                  </div>
+                  <p className="mt-3 text-sm leading-7 text-slate-500">{item.intent}</p>
                 </div>
-                <SentimentBar
-                  positive={item.positive}
-                  neutral={item.neutral}
-                  negative={item.negative}
-                />
-                <p className="text-xs text-gray-500 mt-2 leading-snug">{item.reading}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        )}
+
+          <div className="rounded-[30px] border border-slate-100 bg-white p-6 shadow-sm sm:p-7">
+            <div className="flex flex-wrap items-center gap-5 text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-3 w-3 rounded-full bg-green-400" />
+                Positivo
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-3 w-3 rounded-full bg-gray-300" />
+                Neutral
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-3 w-3 rounded-full bg-red-400" />
+                Negativo
+              </span>
+            </div>
+
+            <div className="mt-6 space-y-5">
+              {sentimentData.map((item) => (
+                <div key={item.concept} className="rounded-[24px] border border-slate-100 bg-slate-50 px-5 py-4">
+                  <div className="mb-3 flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-semibold text-slate-900">{item.concept}</span>
+                      {item.alert ? (
+                        <span className="rounded-full bg-red-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-red-600">
+                          Alerta
+                        </span>
+                      ) : null}
+                    </div>
+                    <div className="flex flex-shrink-0 items-center gap-4 text-xs text-slate-500">
+                      <span className="font-semibold text-green-600">{item.positive}%</span>
+                      <span className="text-slate-400">{item.neutral}%</span>
+                      <span className="font-semibold text-red-500">{item.negative}%</span>
+                    </div>
+                  </div>
+
+                  <SentimentBar positive={item.positive} neutral={item.neutral} negative={item.negative} />
+                  <p className="mt-3 text-sm leading-7 text-slate-500">{item.reading}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </SlideShell>
   );
 }
