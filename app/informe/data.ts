@@ -91,8 +91,8 @@ export const priorities = [
       "Reforzar elegibilidad para Google AI Overviews",
     ],
     metrics: [
-      "Aumento de visibilidad en AI Search y Google AI Overviews",
-      "Incremento de citaciones mediante schema markup y contenido estructurado",
+      "Aumento de visibilidad en AI Search y Google AI Overviews, visible en Overview",
+      "Incremento de citaciones mediante schema markup y contenido estructurado, visible en Prompt Tracking -> Sources -> Reddit Overview",
       "Mejora en indexacion, rastreabilidad y performance tecnica",
     ],
   },
@@ -105,12 +105,11 @@ export const priorities = [
     objective:
       "Reducir la friccion en la etapa de decision y aumentar la probabilidad de conversion, asegurando que los usuarios comprendan claramente el valor de estudiar en Tecsup.",
     actions: [
-      "Cuanto cuesta estudiar en Tecsup",
-      "Que incluye la inversion",
-      "Matricula y pensiones",
-      "Opciones de becas y descuentos",
-      "Alternativas de financiamiento",
-      "Retorno de inversion y empleabilidad",
+      "Crear pagina principal de costos y pensiones",
+      "Agregar bloques de costos en cada carrera priorizada",
+      "Crear seccion de becas, descuentos y financiamiento",
+      "Incluir FAQs para IA sobre costos y financiamiento",
+      "Integrar la informacion para que la IA la cite correctamente",
     ],
     metrics: [
       "Incremento de menciones positivas en temas de costos (SEMrush AI)",
@@ -129,14 +128,13 @@ export const priorities = [
     objective:
       "Aumentar la visibilidad y cobertura de Tecsup en los conceptos y carreras donde los competidores tienen mayor presencia.",
     actions: [
-      "Computacion, informatica, redes y software",
-      "Mecanica, mantenimiento y manufactura",
-      "Electricidad, electronica y automatizacion",
-      "Mecatronica e industria 4.0",
-      "Mineria, energia y operaciones industriales",
+      "Crear clusters de contenido por carrera y area tecnica",
+      "Desarrollar pagina pilar + paginas de apoyo por carrera",
+      "Incluir informacion completa: duracion, malla, campo laboral, costos, laboratorios, acreditaciones, sedes, modalidades, empleabilidad, convenios",
+      "Optimizar las paginas para que las IA generen respuestas claras y comparativas",
     ],
     metrics: [
-      "Reduccion de la brecha competitiva (concept_gap en SEMrush AI)",
+      "Reduccion de la brecha competitiva (concept and sentiment en SEMrush AI)",
       "Crecimiento en graficos de conceptos y brechas competitivas",
       "Evolucion de menciones y sentimiento por concepto",
       "Cambios en prompts de conversion",
@@ -151,11 +149,9 @@ export const priorities = [
     objective:
       "Aumentar la autoridad percibida de Tecsup en respuestas generadas por IA y fortalecer las senales externas de confianza.",
     actions: [
-      "Convertir acreditaciones en activos digitales verificables",
-      "Publicar casos de exito de empleabilidad con datos concretos",
-      "Reforzar presencia en Reddit, Quora y foros especializados",
-      "Fortalecer presencia en comunidades educativas y sitios de resenas",
-      "Ampliar diversidad de fuentes externas citables para IA",
+      "Transformar acreditaciones, empleabilidad, laboratorios, convenios y casos de exito en activos digitales citables",
+      "Reforzar presencia en Reddit, Quora, foros, comunidades educativas y sitios de resenas",
+      "Garantizar que IA pueda usar estas fuentes externas para responder consultas con autoridad",
     ],
     metrics: [
       "Incremento de menciones positivas y citaciones de Tecsup en IA",
@@ -172,10 +168,10 @@ export const priorities = [
     objective:
       "Llevar al usuario desde una respuesta de IA hasta una accion concreta de contacto, asesoria o postulacion.",
     actions: [
-      "Mapear cada intencion de busqueda hacia una pagina especifica",
-      "Incluir argumentos de confianza por etapa del journey",
-      "Implementar CTAs alineados con la intencion del usuario",
-      "Crear paginas de destino para cada perfil de consulta en IA",
+      "Mapear consultas de IA a paginas especificas segun intencion",
+      "Crear CTAs claros y personalizados por etapa del journey",
+      "Agregar modulos reutilizables en paginas de carrera: costos, becas, malla, empleabilidad, laboratorios, preguntas frecuentes",
+      "Medir leads desde experiencias IA y ajustar recorrido hacia la conversion",
     ],
     metrics: [
       "Incremento de trafico cualificado desde experiencias de IA",

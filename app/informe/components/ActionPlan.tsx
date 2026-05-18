@@ -1,13 +1,16 @@
 import { priorities } from "../data";
 import SlideShell from "./SlideShell";
 
+const detailDocUrl =
+  "https://docs.google.com/document/d/1WfpsArAdwLSrtY3P2NT8RXfvphWFEysD7t4kJH6Pzwk/edit?usp=sharing";
+
 export default function ActionPlan() {
   const immediatePriority = priorities[0];
 
   return (
     <SlideShell
       id="plan"
-      index="03"
+      index="04"
       eyebrow="Plan de Accion"
       title="Cinco movimientos para pasar de presencia a captacion"
       description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendacion es activar primero la base tecnica y semantica para que Tecsup gane legibilidad, citabilidad y mejor traccion en ecosistemas de IA."
@@ -22,6 +25,14 @@ export default function ActionPlan() {
       }
     >
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="rounded-[28px] border border-brand-100 bg-brand-50/80 p-5 md:col-span-2 xl:col-span-3">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-brand-700">Alcance inicial</p>
+          <p className="mt-3 text-sm leading-7 text-slate-700">
+            Los items de cada prioridad corresponden a las actividades que se deben ejecutar en una primera etapa.
+            Luego se pueden ajustar segun aprendizaje, resultados y siguientes iteraciones del plan.
+          </p>
+        </div>
+
         {priorities.map((priority) => (
           <article
             key={priority.id}
@@ -90,6 +101,15 @@ export default function ActionPlan() {
                 </ul>
               </div>
             </div>
+
+            <a
+              href={detailDocUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-4 py-3 text-sm font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-100"
+            >
+              Ver detalle
+            </a>
           </article>
         ))}
       </div>
