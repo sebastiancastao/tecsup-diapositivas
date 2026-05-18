@@ -8,15 +8,15 @@ export default function ActionPlan() {
     <SlideShell
       id="plan"
       index="03"
-      eyebrow="Plan de Acción"
-      title="Cinco movimientos para pasar de presencia a captación"
-      description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendación es activar primero la capa de costos y financiamiento, porque hoy concentra la mayor fricción de decisión."
+      eyebrow="Plan de Accion"
+      title="Cinco movimientos para pasar de presencia a captacion"
+      description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendacion es activar primero la capa de costos y financiamiento, porque hoy concentra la mayor friccion de decision."
       accent={
         <div className="rounded-[26px] border border-brand-100 bg-brand-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-700">Prioridad inmediata</p>
           <p className="mt-3 text-lg font-black tracking-tight text-slate-900">{immediatePriority.title}</p>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            Ataca de frente la objeción de precio, becas, pensiones y retorno de inversión.
+            Ataca de frente la objecion de precio, becas, pensiones y retorno de inversion.
           </p>
         </div>
       }
@@ -58,16 +58,27 @@ export default function ActionPlan() {
                     </li>
                   ))}
                 </ul>
+
                 {priority.actions.length > 3 ? (
-                  <p className="mt-3 text-xs font-semibold text-brand-700">
-                    + {priority.actions.length - 3} líneas de acción adicionales
-                  </p>
+                  <details className="mt-3">
+                    <summary className="cursor-pointer list-none text-xs font-semibold text-brand-700 marker:hidden">
+                      + {priority.actions.length - 3} lineas de accion adicionales
+                    </summary>
+                    <ul className="mt-3 space-y-2 border-t border-slate-200 pt-3">
+                      {priority.actions.slice(3).map((action) => (
+                        <li key={action} className="flex items-start gap-2 text-sm leading-6 text-slate-700">
+                          <span className="mt-1.5 inline-block h-2 w-2 rounded-full bg-brand-300" />
+                          {action}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
                 ) : null}
               </div>
 
               <div className="rounded-[22px] border border-slate-100 p-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.26em] text-slate-400">
-                  Métricas GEO
+                  Metricas GEO
                 </p>
                 <ul className="mt-3 space-y-2">
                   {priority.metrics.slice(0, 2).map((metric) => (
