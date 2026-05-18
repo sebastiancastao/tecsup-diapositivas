@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { reportMeta } from "../data";
 import seoLabLogo from "../../../SeoLab Logo (3).png";
+import elevaLogo from "../../../WhatsApp Image 2026-05-18 at 09.13.29 (1).jpeg";
 
 export default function ReportHeader() {
   const metaCards = [
@@ -59,8 +60,17 @@ export default function ReportHeader() {
         </div>
 
         <aside className="relative flex flex-col justify-between gap-6 border-t border-white/10 bg-white/[0.06] px-6 py-8 backdrop-blur-sm lg:border-l lg:border-t-0 lg:px-8 lg:py-10">
-          <div className="self-end rounded-[24px] bg-white px-4 py-3 shadow-xl shadow-black/20">
-            <Image src={seoLabLogo} alt="SeoLab" priority className="h-auto w-36 sm:w-40 lg:w-44" />
+          <div className="self-end flex flex-col items-end gap-3">
+            <div className="rounded-[24px] bg-white px-4 py-3 shadow-xl shadow-black/20">
+              <Image src={seoLabLogo} alt="SeoLab" priority className="h-auto w-36 sm:w-40 lg:w-44" />
+            </div>
+            <div className="rounded-[24px] bg-white px-4 py-3 shadow-xl shadow-black/20">
+              <Image
+                src={elevaLogo}
+                alt="Eleva"
+                className="h-20 w-36 object-contain object-bottom sm:h-24 sm:w-40 lg:h-24 lg:w-44"
+              />
+            </div>
           </div>
 
           <div className="rounded-[28px] border border-white/10 bg-white/10 p-6">
