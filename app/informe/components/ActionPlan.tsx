@@ -10,13 +10,13 @@ export default function ActionPlan() {
       index="03"
       eyebrow="Plan de Accion"
       title="Cinco movimientos para pasar de presencia a captacion"
-      description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendacion es activar primero la capa de costos y financiamiento, porque hoy concentra la mayor friccion de decision."
+      description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendacion es activar primero la base tecnica y semantica para que Tecsup gane legibilidad, citabilidad y mejor traccion en ecosistemas de IA."
       accent={
         <div className="rounded-[26px] border border-brand-100 bg-brand-50 p-5">
           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-700">Prioridad inmediata</p>
           <p className="mt-3 text-lg font-black tracking-tight text-slate-900">{immediatePriority.title}</p>
           <p className="mt-3 text-sm leading-7 text-slate-600">
-            Ataca de frente la objecion de precio, becas, pensiones y retorno de inversion.
+            Construye la capa tecnica que facilita rastreo, indexacion, citacion y elegibilidad para AI Search y Google AI Overviews.
           </p>
         </div>
       }
