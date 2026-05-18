@@ -2,7 +2,7 @@ export const reportMeta = {
   title: "Informe Ejecutivo de Tecsup en Ecosistemas de IA",
   to: "Equipo Tecsup",
   from: "Equipo de Estrategia Digital",
-  period: "1 de Febrero – 30 de Abril de 2026",
+  period: "",
   totalMentions: 19992,
 };
 
@@ -93,10 +93,10 @@ export const priorities = [
     ],
     metrics: [
       "Incremento de menciones positivas en temas de costos (SEMrush AI)",
-      "concept_sentiment_explained → seguimiento del sentimiento por concepto",
+      "concept and sentiment → Concept Analysis",
       "Mayor presencia en prompts de conversión: costos, pensiones y becas",
       "concepts_aggregated → volumen total de menciones y sentimiento",
-      "concept_gap → comparación frente a competidores en conversión",
+      "concept and sentiment → Concept Analysis",
     ],
   },
   {
