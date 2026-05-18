@@ -108,7 +108,7 @@ export default function ActionPlan() {
               rel="noreferrer"
               className="mt-6 inline-flex items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-4 py-3 text-sm font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-100"
             >
-              Ver detalle
+              {priority.id === 1 ? "llm.txt" : "Ver detalle"}
             </a>
           </article>
         ))}
