@@ -5,8 +5,13 @@ import { useEffect, useState } from "react";
 import { priorities } from "../data";
 import SlideShell from "./SlideShell";
 
-const detailDocUrl =
+const defaultDetailDocUrl =
   "https://docs.google.com/document/d/1WfpsArAdwLSrtY3P2NT8RXfvphWFEysD7t4kJH6Pzwk/edit?usp=sharing";
+
+const priorityDetailDocUrls: Record<number, string> = {
+  1: "https://docs.google.com/document/d/14yQmIzI1zQbPbLw7CKokm_Ncg6FaGEHISGkWWvn1HVw/edit?tab=t.0#heading=h.pouwv8txec3b",
+  2: "https://docs.google.com/document/d/1aFTunXbtc8SV02XyjW7jUyALNjJ9BF9mkmjPnahF0OA/edit?usp=sharing",
+};
 
 export default function ActionPlan() {
   const immediatePriority = priorities[0];
@@ -93,23 +98,21 @@ export default function ActionPlan() {
                     ))}
                   </ul>
 
-                  {priority.actions.length > 3 ? (
+                  <div className="mt-4 flex items-center justify-between gap-3">
+                    <span className="text-xs font-semibold text-slate-500">
+                      {priority.actions.length > 3
+                        ? `+ ${priority.actions.length - 3} lineas de accion adicionales`
+                        : "Resumen completo disponible"}
+                    </span>
                     <button
                       type="button"
                       onClick={() => setActivePriorityId(priority.id)}
-                      className="mt-3 text-xs font-semibold text-brand-700 transition-colors hover:text-brand-800"
+                      className="inline-flex items-center justify-center rounded-full border border-brand-200 bg-white px-4 py-2 text-xs font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-50 hover:text-brand-800"
+                      aria-label={`Ver mas sobre ${priority.title}`}
                     >
-                      + {priority.actions.length - 3} lineas de accion adicionales
+                      Ver mas
                     </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setActivePriorityId(priority.id)}
-                      className="mt-3 text-xs font-semibold text-brand-700 transition-colors hover:text-brand-800"
-                    >
-                      Ver acciones clave
-                    </button>
-                  )}
+                  </div>
                 </div>
 
                 <div className="rounded-[22px] border border-slate-100 p-4">
@@ -176,7 +179,7 @@ export default function ActionPlan() {
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <a
-                  href={detailDocUrl}
+                  href={priorityDetailDocUrls[activePriority.id] ?? defaultDetailDocUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-5 py-3 text-sm font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-100"
