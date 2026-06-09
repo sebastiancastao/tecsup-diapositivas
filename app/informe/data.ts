@@ -121,6 +121,28 @@ export const priorities = [
   },
   {
     id: 3,
+    title: "Estrategia de adquisicion de menciones en prompts generales",
+    color: "from-violet-500 to-purple-600",
+    badge: "Fuentes citables",
+    badgeColor: "bg-violet-100 text-violet-700",
+    objective:
+      "Lograr menciones estables de Tecsup en prompts generales como '¿Cual es el mejor instituto del Peru?', influyendo en las fuentes de terceros (rankings) que los LLM citan como referencia. La palanca no es el sitio de Tecsup, sino los medios que el modelo usa como fuente.",
+    actions: [
+      "Diagnosticar la volatilidad de Tecsup en el prompt y las fuentes que cita el LLM",
+      "Negociar con la fuente principal (universidadesperu.info) para mejorar el ranking",
+      "Aportar datos legitimos y proponer canje de backlinks como intercambio de valor",
+      "Crear fuentes propias: blog interno 'mejores # institutos del Peru' con Tecsup en el top",
+      "Gestionar menciones en medios con autoridad tematica (cerem.pe, businessempresarial.com.pe)",
+    ],
+    metrics: [
+      "Mencion estable de Tecsup en el prompt '¿Cual es el mejor instituto del Peru?'",
+      "Mejora de la posicion de Tecsup en los rankings que el LLM cita como fuente",
+      "Ampliacion del conjunto de fuentes citables donde Tecsup aparece favorablemente",
+      "Incremento de trafico referido desde respuestas de IA en prompts comparativos",
+    ],
+  },
+  {
+    id: 4,
     title: "Cerrar brechas competitivas en carreras y categorias",
     color: "from-brand-500 to-brand-700",
     badge: "Estrategico",
@@ -141,7 +163,7 @@ export const priorities = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     title: "Reforzar entidades de confianza que las IA puedan citar",
     color: "from-brand-400 to-brand-600",
     badge: "Autoridad",
@@ -160,7 +182,7 @@ export const priorities = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "Redisenar el journey desde IA hasta conversion",
     color: "from-emerald-500 to-teal-500",
     badge: "Conversion",
