@@ -143,6 +143,25 @@ export const priorities = [
   },
   {
     id: 4,
+    title: "Reforzar entidades de confianza que las IA puedan citar",
+    color: "from-brand-400 to-brand-600",
+    badge: "Autoridad",
+    badgeColor: "bg-brand-50 text-brand-700",
+    objective:
+      "Aumentar la autoridad percibida de Tecsup en respuestas generadas por IA y fortalecer las senales externas de confianza.",
+    actions: [
+      "Transformar acreditaciones, empleabilidad, laboratorios, convenios y casos de exito en activos digitales citables",
+      "Reforzar presencia en Reddit, Quora, foros, comunidades educativas y sitios de resenas",
+      "Garantizar que IA pueda usar estas fuentes externas para responder consultas con autoridad",
+    ],
+    metrics: [
+      "Incremento de menciones positivas y citaciones de Tecsup en IA",
+      "Mayor presencia en prompts de reputacion y comparacion institucional",
+      "Aumento de menciones en plataformas 2.0 (Reddit, Quora, foros)",
+    ],
+  },
+  {
+    id: 5,
     title: "Cerrar brechas competitivas en carreras y categorias",
     color: "from-brand-500 to-brand-700",
     badge: "Estrategico",
@@ -160,25 +179,6 @@ export const priorities = [
       "Crecimiento en graficos de conceptos y brechas competitivas",
       "Evolucion de menciones y sentimiento por concepto",
       "Cambios en prompts de conversion",
-    ],
-  },
-  {
-    id: 5,
-    title: "Reforzar entidades de confianza que las IA puedan citar",
-    color: "from-brand-400 to-brand-600",
-    badge: "Autoridad",
-    badgeColor: "bg-brand-50 text-brand-700",
-    objective:
-      "Aumentar la autoridad percibida de Tecsup en respuestas generadas por IA y fortalecer las senales externas de confianza.",
-    actions: [
-      "Transformar acreditaciones, empleabilidad, laboratorios, convenios y casos de exito en activos digitales citables",
-      "Reforzar presencia en Reddit, Quora, foros, comunidades educativas y sitios de resenas",
-      "Garantizar que IA pueda usar estas fuentes externas para responder consultas con autoridad",
-    ],
-    metrics: [
-      "Incremento de menciones positivas y citaciones de Tecsup en IA",
-      "Mayor presencia en prompts de reputacion y comparacion institucional",
-      "Aumento de menciones en plataformas 2.0 (Reddit, Quora, foros)",
     ],
   },
   {
