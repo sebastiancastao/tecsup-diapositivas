@@ -12,7 +12,7 @@ const priorityDetailDocUrls: Record<number, string> = {
   1: "https://docs.google.com/document/d/14yQmIzI1zQbPbLw7CKokm_Ncg6FaGEHISGkWWvn1HVw/edit?tab=t.0#heading=h.pouwv8txec3b",
   2: "https://docs.google.com/document/d/1aFTunXbtc8SV02XyjW7jUyALNjJ9BF9mkmjPnahF0OA/edit?usp=sharing",
   3: "https://docs.google.com/document/d/1Fvbe6IwZrq85SliyiZTzL4-_QaNmuP-42neBQ_EIDyk/edit?tab=t.0",
-  4: "https://docs.google.com/document/d/1WiiyIDVtER8gBXi8tpW9-kxIEl8xBFKIZBlfqgOVOjU/edit?tab=t.0",
+  4: "https://docs.google.com/document/d/1D3gIHyiNrKrPQy4m8Zb7j6SNHi3m6TwgN5FJ37kEq_M/edit?usp=sharing",
 };
 
 export default function ActionPlan() {
