@@ -13,6 +13,11 @@ const priorityDetailDocUrls: Record<number, string> = {
   2: "https://docs.google.com/document/d/1aFTunXbtc8SV02XyjW7jUyALNjJ9BF9mkmjPnahF0OA/edit?usp=sharing",
   3: "https://docs.google.com/document/d/1Fvbe6IwZrq85SliyiZTzL4-_QaNmuP-42neBQ_EIDyk/edit?tab=t.0",
   4: "https://docs.google.com/document/d/1D3gIHyiNrKrPQy4m8Zb7j6SNHi3m6TwgN5FJ37kEq_M/edit?usp=sharing",
+  5: "https://docs.google.com/document/d/12ABvXbPJBD-qFo2Y0VQx9t0ETJjG4x_hlN35eyvSNRw/edit?tab=t.0",
+};
+
+const prioritySheetUrls: Record<number, string> = {
+  5: "https://docs.google.com/spreadsheets/d/16yVZvzc51arvmg3vTRK7nhSww2JhybadPUK6QIKby2w/edit?gid=1226737181#gid=1226737181",
 };
 
 export default function ActionPlan() {
@@ -40,7 +45,7 @@ export default function ActionPlan() {
       id="plan"
       index="04"
       eyebrow="Plan de Accion"
-      title="Seis movimientos para pasar de presencia a captacion"
+      title="Siete movimientos para pasar de presencia a captacion"
       description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendacion es activar primero la base tecnica y semantica para que Tecsup gane legibilidad, citabilidad y mejor traccion en ecosistemas de IA."
       accent={
         <div className="rounded-[26px] border border-brand-100 bg-brand-50 p-5">
@@ -180,14 +185,27 @@ export default function ActionPlan() {
               </ul>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <a
-                  href={priorityDetailDocUrls[activePriority.id] ?? defaultDetailDocUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-5 py-3 text-sm font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-100"
-                >
-                  {activePriority.id === 1 ? "Documento guía" : "Ver detalle"}
-                </a>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <a
+                    href={priorityDetailDocUrls[activePriority.id] ?? defaultDetailDocUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center rounded-full border border-brand-200 bg-brand-50 px-5 py-3 text-sm font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-100"
+                  >
+                    {activePriority.id === 1 ? "Documento guía" : "Ver detalle"}
+                  </a>
+
+                  {prioritySheetUrls[activePriority.id] ? (
+                    <a
+                      href={prioritySheetUrls[activePriority.id]}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center rounded-full border border-brand-200 bg-white px-5 py-3 text-sm font-semibold text-brand-700 transition-colors hover:border-brand-300 hover:bg-brand-50"
+                    >
+                      Ver hoja de calculo
+                    </a>
+                  ) : null}
+                </div>
 
                 <button
                   type="button"

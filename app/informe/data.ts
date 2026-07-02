@@ -162,6 +162,27 @@ export const priorities = [
   },
   {
     id: 5,
+    title: "Optimizar la citabilidad del contenido actual",
+    color: "from-sky-500 to-blue-600",
+    badge: "Citabilidad",
+    badgeColor: "bg-sky-100 text-sky-700",
+    objective:
+      "Elevar la citabilidad del contenido actual de Tecsup a partir de un analisis semantico que reescribe y optimiza las paginas existentes para que Google y los LLM las entiendan, citen y recomienden. Consolida el contenido redactado en las fases 1 a 4 (paginas, carreras, cursos, departamentos y servicios) y la sintesis operativa de las fases 5 y 6 para mantener la trazabilidad del proceso.",
+    actions: [
+      "Analisis semantico del contenido actual para detectar brechas de citabilidad por intencion de busqueda",
+      "Fase 1 - Paginas principales: 11 paginas reoptimizadas (meta title, meta description, H1, hero, cuerpo y FAQs)",
+      "Fase 2 - Carreras: 27 paginas con texto semantico, perfil de egreso, campo laboral y FAQs",
+      "Fase 3 - Cursos: 216 paginas optimizadas para busqueda e IA",
+      "Fase 4 - Departamentos, laboratorios y servicios: 33 paginas reescritas para citabilidad",
+      "Fases 5 y 6 - Consolidacion SEO/LLM y plan de implementacion (sintesis operativa)",
+    ],
+    metrics: [
+      "Numero de citaciones de Tecsup en respuestas de IA y AI Overviews (Prompt Tracking -> Sources)",
+      "Source visibility: cuota de visibilidad de Tecsup como fuente citada por los LLM",
+    ],
+  },
+  {
+    id: 6,
     title: "Cerrar brechas competitivas en carreras y categorias",
     color: "from-brand-500 to-brand-700",
     badge: "Estrategico",
@@ -182,7 +203,7 @@ export const priorities = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "Redisenar el journey desde IA hasta conversion",
     color: "from-emerald-500 to-teal-500",
     badge: "Conversion",
