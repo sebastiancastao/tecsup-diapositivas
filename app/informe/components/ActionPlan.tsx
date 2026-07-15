@@ -14,6 +14,7 @@ const priorityDetailDocUrls: Record<number, string> = {
   3: "https://docs.google.com/document/d/1Fvbe6IwZrq85SliyiZTzL4-_QaNmuP-42neBQ_EIDyk/edit?tab=t.0",
   4: "https://docs.google.com/document/d/1D3gIHyiNrKrPQy4m8Zb7j6SNHi3m6TwgN5FJ37kEq_M/edit?usp=sharing",
   5: "https://docs.google.com/document/d/12ABvXbPJBD-qFo2Y0VQx9t0ETJjG4x_hlN35eyvSNRw/edit?tab=t.0",
+  6: "https://docs.google.com/document/d/1xTlCb2_YxfbRm1su3urfUN07X6JH__FyunzfNpihBG0/edit?tab=t.0",
 };
 
 const prioritySheetUrls: Record<number, string> = {
@@ -45,7 +46,7 @@ export default function ActionPlan() {
       id="plan"
       index="04"
       eyebrow="Plan de Accion"
-      title="Siete movimientos para pasar de presencia a captacion"
+      title="Ocho movimientos para pasar de presencia a captacion"
       description="El plan ya no se presenta como lista larga, sino como un set de jugadas ejecutivas priorizadas. La recomendacion es activar primero la base tecnica y semantica para que Tecsup gane legibilidad, citabilidad y mejor traccion en ecosistemas de IA."
       accent={
         <div className="rounded-[26px] border border-brand-100 bg-brand-50 p-5">

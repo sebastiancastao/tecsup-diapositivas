@@ -183,6 +183,30 @@ export const priorities = [
   },
   {
     id: 6,
+    title: "Arquitectura de datos estructurados optimizada para GEO",
+    color: "from-indigo-500 to-blue-700",
+    badge: "Entidades",
+    badgeColor: "bg-indigo-100 text-indigo-700",
+    objective:
+      "Lograr que los motores generativos (AI Overviews, ChatGPT, Perplexity, Claude, Gemini) resuelvan a Tecsup como entidad unica, citen sus atributos con precision y recomienden sus programas. El schema no apunta a rich results sino a entity resolution: anclar la entidad a fuentes externas verificables via sameAs, usar @id estables para construir un grafo interno navegable y declarar atributos citables (fundacion, acreditacion ABET, becas, duracion de programas).",
+    actions: [
+      "Verificar o crear el item de Tecsup en Wikidata y obtener el QID que ancla el sameAs (resuelve la colision con el Tecsup frances)",
+      "Implementar nodo raiz EducationalOrganization sitewide con @id estable y sameAs completo (Wikipedia, Wikidata, redes oficiales)",
+      "Publicar schema de sedes Lima, Arequipa y Trujillo con geolocalizacion y NAP consistente frente a Google Business Profile",
+      "Crear URLs individuales por carrera e implementar EducationalOccupationalProgram (duracion ISO 8601, titulo, becas, modalidades, sedes)",
+      "Agregar FAQPage en admision y segmento joven con respuestas autonomas de 30-50 palabras que nombren a Tecsup explicitamente",
+      "Implementar Course + CourseInstance en fichas del catalogo con render server-side (los crawlers de LLM no ejecutan JavaScript)",
+      "Marcar blog y noticias con Article + autoria E-E-A-T (Person con credenciales) y campo about enlazado a Wikidata",
+      "Completar Event y BreadcrumbList sitewide y validar cada template con Rich Results Test y validator.schema.org antes del deploy",
+    ],
+    metrics: [
+      "JSON-LD presente en el HTML inicial de cada template (verificable con curl sin ejecutar JavaScript)",
+      "Menciones de Tecsup en AI Overviews reportadas por Google Search Console",
+      "Spot-checks mensuales en ChatGPT/Perplexity con queries objetivo: 'mejores institutos tecnologicos en Peru', 'donde estudiar mecatronica en Lima'",
+    ],
+  },
+  {
+    id: 7,
     title: "Cerrar brechas competitivas en carreras y categorias",
     color: "from-brand-500 to-brand-700",
     badge: "Estrategico",
@@ -203,7 +227,7 @@ export const priorities = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     title: "Redisenar el journey desde IA hasta conversion",
     color: "from-emerald-500 to-teal-500",
     badge: "Conversion",
